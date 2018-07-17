@@ -1,0 +1,42 @@
+body {
+    background-image: url("images/internet_br.png");  
+    background-size: cover; 
+    background-attachment: fixed;
+    background-position: center; 
+}
+
+#home-content{
+    height: 100vh;
+    width: 100vw; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#survey-content{
+    height: 100vh;
+    width: 100vw; 
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.content-font { 
+    font-family: 'Share Tech Mono', monospace;
+}
+
+#home-header {
+    position: relative; 
+    top: 0; 
+}
+
+a {
+    text-decoration: none;
+    color: black; 
+}
+
+a:hover 
+{
+     color: blue; 
+     text-decoration:none; 
+     cursor:pointer;  
+}
