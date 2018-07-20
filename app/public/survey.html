@@ -5,19 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FF Survey</title>
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap External CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B"
         crossorigin="anonymous">
     <!-- External style sheet -->
     <link rel="stylesheet" type="text/css" href="style.css">
-    <!-- Popper javascript for modal-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
-        crossorigin="anonymous"></script>
-    <!-- Bootstrap min for modals-->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
-        crossorigin="anonymous"></script>
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
     <!-- Font Awesome -->
@@ -57,48 +49,49 @@
                             <h1 class="panel-title">
                                 <strong>About me</strong>
                             </h1>
-                        </div>
+                        </div> 
                         <div class="panel-body">
-                            <form method="POST" role="form" id="info-form">
-
+                            <form method="POST" role="form">
+ 
                                 <div class="form-group">
                                     <label for="name">Name (Required)</label>
-                                    <input type="text" class="form-control" id="name">
+                                    <input type="text" class="form-control chosen-select" id="name">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="role">Link to Photo Image (Required)</label>
-                                    <input type="text" class="form-control" id="photo">
+                                    <input type="text" class="form-control chosen-select" id="photo">
                                 </div>
 
-                            </form>
-                        </div>
+                            </form> 
+                        </div> 
                     </div>
                 </div>
-            </div>
+            </div> 
 
-        </div>
+        </div> 
 
         <!-- Modal id="friendModal"-->
-        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" id="friendModal">
             <div class="modal-dialog" role="document">
                 <div class="modal-content content-font">
                     <div class="modal-header text-center">
-                        <h3 class="modal-title" id="exampleModalLabel">Most Compatible Match</h3>
+                        <h1 class="modal-title text-center content-font mb-2" id="user-header"></h1>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                    </div>
+                    </div>  
                     <div class="modal-body">
-                        ...
-                    </div>
+                        <img id="compat-img"  src="">
+                        <h1 id="compat-header" class="content-font mb-2 mt-2 text-center"></h1>
+                    </div> 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Retake Survey!</button>
+                        <button id="retake" type="button" class="btn btn-primary" data-dismiss="modal">Retake</button>
                     </div>
                 </div>
-            </div>
-        </div>
-
+            </div> 
+        </div>  
+  
         <!-- Survey Questions  -->
         <div class="container bg-white content-font mt-2 mb-2">
             <div class="row">
@@ -116,7 +109,7 @@
 
                                 <h4>Question 1</h4>
                                 <h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
-                                <select class="chosen-select" id="q1">
+                                <select class="chosen-select question" id="q1">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -127,7 +120,7 @@
                                 <hr>
                                 <h4>Question 2</h4>
                                 <h5>Generally speaking, you rely more on your experience than your imagination.</h5>
-                                <select class="chosen-select" id="q2">
+                                <select class="chosen-select question" id="q2">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -138,7 +131,7 @@
                                 <hr>
                                 <h4>Question 3</h4>
                                 <h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
-                                <select class="chosen-select" id="q3">
+                                <select class="chosen-select question" id="q3">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -150,7 +143,7 @@
                                 <div>
                                     <h4>Question 4</h4>
                                     <h5>You rarely do something just out of sheer curiosity.</h5>
-                                    <select class="chosen-select" id="q4">
+                                    <select class="chosen-select question" id="q4">
                                         <option value="select">Select an Option</option>
                                         <option value="1">1 (Strongly Disagree)</option>
                                         <option value="2">2</option>
@@ -162,7 +155,7 @@
                                 <hr>
                                 <h4>Question 5</h4>
                                 <h5>People can rarely upset you.</h5>
-                                <select class="chosen-select" id="q5">
+                                <select class="chosen-select question" id="q5">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -173,7 +166,7 @@
                                 <hr>
                                 <h4>Question 6</h4>
                                 <h5>It is often difficult for you to relate to other people’s feelings.</h5>
-                                <select class="chosen-select" id="q6">
+                                <select class="chosen-select question" id="q6">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -184,7 +177,7 @@
                                 <hr>
                                 <h4>Question 7</h4>
                                 <h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
-                                <select class="chosen-select" id="q7">
+                                <select class="chosen-select question" id="q7">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -195,19 +188,19 @@
                                 <hr>
                                 <h4>Question 8</h4>
                                 <h5>You rarely get carried away by fantasies and ideas.</h5>
-                                <select class="chosen-select" id="q8">
+                                <select class="chosen-select question" id="q8">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
                                     <option value="5">5 (Strongly Agree)</option>
-                                </select>
+                                </select> 
                                 <hr>
                                 <h4>Question 9</h4>
                                 <h5>You think that everyone’s views should be respected regardless of whether they are supported
                                     by facts or not.</h5>
-                                <select class="chosen-select" id="q9">
+                                <select class="chosen-select question" id="q9">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -218,7 +211,7 @@
                                 <hr>
                                 <h4>Question 10</h4>
                                 <h5>You feel more energetic after spending time with a group of people.</h5>
-                                <select class="chosen-select" id="q10">
+                                <select class="chosen-select question" id="q10">
                                     <option value="select">Select an Option</option>
                                     <option value="1">1 (Strongly Disagree)</option>
                                     <option value="2">2</option>
@@ -227,10 +220,10 @@
                                     <option value="5">5 (Strongly Agree)</option>
                                 </select>
                             </form>
-                                <br>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" id="submit-btn" data-toggle="modal" data-target="#friendModal">
-                                    <i class="fas fa-check"></i>Submit</button>
-                                <!-- Button trigger modal -->
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block mb-3" id="submit-btn" data-toggle="modal" data-target="#friendModal">
+                                <i class="fas fa-check"></i>Submit</button>
+                            <!-- Button trigger modal -->
                         </div>
                     </div>
                 </div>
@@ -238,60 +231,14 @@
         </div>
     </div>
 </body>
-<script>
-
-    // store select button in a letiable 
-    let submitButton = document.querySelector('#submit-btn');
-    // Select all the nodes from the chosen select to make sure they are filled out when the
-    let selectNodes = document.querySelectorAll('.chosen-select');
-    let infoForm = document.querySelector('#info-form');
-    //flags to ensure the correct fields have been filled out
-    let persInfo; 
-    let surveyInfo; 
- 
-    submitButton.onclick = function () {
-        event.preventDefault()
-
-        // for (let i = 0; i < infoForm.length; i++) {
-        //     if (infoForm.children[i].childNodes[3].value === '') {
-        //         infoForm.children[i].childNodes[1].style.color = 'red'
-        //         persInfo = false 
-        //     } else {
-        //         infoForm.children[i].childNodes[1].style.color = 'black'
-        //         persInfo = true
-          
-        //     }
-        // }
-        // for (let j = 0; j < selectNodes.length; j++) {
-        //     if (selectNodes[j].value === 'select') {
-        //         selectNodes[j].style.color = 'red';
-        //         surveyInfo = false;
-        //     } else {
-        //         selectNodes[j].style.color = 'black';
-        //         surveyInfo = true;
-        //     }   
-        // }
-  
-
-        if (2 > 1) {
-   
-            let currentUser = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val() ]
-            };
-       
-            $.post("/api/new", currentUser)
-                .done(function(data) {
-                    console.log('client' + JSON.stringify(data));
-    
-                });
-
-        }
-
-   
-    }  
-</script>
-
-
+<!-- Used external javascript to keep logic separate from HTML file -->
+<script src="client.js"></script>
+ <!-- jQuery library --> 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <!-- Popper javascript for modal-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+     crossorigin="anonymous"></script>
+ <!-- Bootstrap min for modals-->
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+     crossorigin="anonymous"></script>
 </html>

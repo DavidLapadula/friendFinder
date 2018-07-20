@@ -22,7 +22,7 @@ body {
 }
 .content-font { 
     font-family: 'Share Tech Mono', monospace;
-}
+} 
 
 #home-header {
     position: relative; 
@@ -40,3 +40,9 @@ a:hover
      text-decoration:none; 
      cursor:pointer;  
 }
+
+#compat-img {
+  width: 100%; 
+} 
+
+ 
