@@ -1,5 +1,6 @@
 let path = require("path");
 
+// export the function with the get requests for html requests
 module.exports = function(app){ 
  
 	app.get('/', function (req, res) {

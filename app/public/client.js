@@ -27,7 +27,7 @@ for (let node in selectNodes) {
 
 }
 
-// button click for then the select button has been clicked
+// event handler for clicking submit button
 submitButton.onclick = function () {
     event.preventDefault();
 
@@ -36,17 +36,16 @@ submitButton.onclick = function () {
         if (element.value === '' || element.value === 'select') {
             element.style.backgroundColor = 'red'
             chosen = false;
-            userHeader.textContent = 'Incomplete Data!'
+            userHeader.textContent = 'Incomplete Data'
             compatImg.src = './images/placeholder.png';
             compatHeader.textContent = '';
         } else {  
             element.style.backgroundColor = 'white'
             chosen = true;
         }
-    });
+    }); 
 
-    // if the flag is true and all the fields are full
-    
+    // if the flag is true,  all the fields are full and post req can go through
     if (chosen) {
         // array to store results and push all the values into an array
         let scoresArray = []
@@ -62,7 +61,7 @@ submitButton.onclick = function () {
         };  
 
         //post request to route where function finds the best match
-        $.post("/api/new", currentUser)
+        $.post("/api/compat", currentUser)
             .done(function (data) {
                 console.log('client' + JSON.stringify(data));
                 userHeader.textContent = `${userName.value}'s best match...`
@@ -82,12 +81,12 @@ submitButton.onclick = function () {
                     element.value = '';
                 } else {
                     element.value = 'select';
-                }
+                } 
                 userHeader.textContent = ''
-                compatImg.src = '';
+                compatImg.src = ''; 
                 compatHeader.textContent = '';
 
-            }
+            }  
         });
 
     }

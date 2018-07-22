@@ -11,7 +11,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
+}  
 
 #survey-content{
     height: 100vh;
@@ -42,7 +42,9 @@ a:hover
 }
 
 #compat-img {
-  width: 100%; 
+    height: auto; 
+    width: auto; 
+    max-width: 300px; 
+    max-height: 350px;
 } 
-
- 
+  

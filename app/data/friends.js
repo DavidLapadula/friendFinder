@@ -28,7 +28,7 @@ let friends = [{
     name: "Jacob Bacaj",
     photo: "https://static.pexels.com/photos/64385/pexels-photo-64385.jpeg",
     scores: [2, 2, 1, 3, 4, 2, 5, 2, 5, 4]
-}]; 
+}];  
 
 //export array
 module.exports = friends;  
