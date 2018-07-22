@@ -27,6 +27,10 @@ for (let node in selectNodes) {
 
 }
 
+selectNodes.forEach((element) => {
+    console.log(element.nodeName)
+})
+
 // event handler for clicking submit button
 submitButton.onclick = function () {
     event.preventDefault();
@@ -39,11 +43,11 @@ submitButton.onclick = function () {
             userHeader.textContent = 'Incomplete Data'
             compatImg.src = './images/placeholder.png';
             compatHeader.textContent = '';
-        } else {  
+        } else {
             element.style.backgroundColor = 'white'
             chosen = true;
         }
-    }); 
+    });
 
     // if the flag is true,  all the fields are full and post req can go through
     if (chosen) {
@@ -58,7 +62,7 @@ submitButton.onclick = function () {
             name: userName.value.trim(),
             photo: userPhoto.value.trim(),
             scores: scoresArray
-        };  
+        }; 
 
         //post request to route where function finds the best match
         $.post("/api/compat", currentUser)
@@ -79,14 +83,14 @@ submitButton.onclick = function () {
                 element.style.backgroundColor = 'white'
                 if (element.nodeName === 'INPUT') {
                     element.value = '';
-                } else {
+                } else if (element.nodeName === 'SELECT') {
                     element.value = 'select';
-                } 
+                }
                 userHeader.textContent = ''
-                compatImg.src = ''; 
+                compatImg.src = '';
                 compatHeader.textContent = '';
 
-            }  
+            }
         });
 
     }

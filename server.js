@@ -1,26 +1,26 @@
-// ===================================Dependencies========================================
+// Package dependenies
  
 let express = require("express");
 let bodyParser = require("body-parser");
 
-// ==============================Set up the Express App========================================
+// Configure express. Allow getting port from the bound environment variabele
 
 let app = express();
 let PORT = process.env.PORT || 3000;
 
-// Sets up the Express app to handle data parsing
+// Sets up parts of the express app that will be used, including static directory
 
 app.use(express.static(__dirname + "/app/public"));
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
  
-// ==============================Require routing========================================
+// Call the route functions and pass in the app variables
 
 require("./app/routing/apiRoutes")(app);
 require("./app/routing/htmlRoutes")(app); 
  
-// =========================Starts the server to begin listening================================
+// Instantiate listener
 
 app.listen(PORT, function() {
   console.log("App listening on PORT " + PORT);

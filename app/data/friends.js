@@ -9,7 +9,7 @@ let friends = [{
     photo: "https://static.pexels.com/photos/206481/pexels-photo-206481.jpeg",
     scores: [1, 5, 5, 4, 5, 3, 4, 3, 1, 4]
 }, { 
-    name: "George Egroeg",
+    name: "George Egroeg", 
     photo: "https://static.pexels.com/photos/249760/pexels-photo-249760.jpeg",
     scores: [4, 1, 3, 1, 1, 2, 5, 4, 2, 1]
 }, {

@@ -22,20 +22,23 @@ module.exports = function(app){
                 //for each friend calculate the total value
                 let diff = Math.abs(newScore[j] -  friends[i].scores[j]);
                 total += diff;
-            }
+            } 
  
             console.log(total); 
 
             if (!bestMatch || total < bestMatch) {
                 bestMatch = total;
                 index = i;
-            }  
+            }   
           
         }
         console.log('Best Match:', `${friends[index].name}, ${index}`);
         console.log('server' + JSON.stringify(req.body)); 
+        // push the new friend into the array an send back the best match
+        friends.push(req.body); 
         res.send(friends[index]); 
     }); 
 }; 
 
 
+   
