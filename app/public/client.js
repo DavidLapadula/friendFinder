@@ -13,7 +13,7 @@ let userHeader = document.querySelector('#user-header');
 
 //flag to ensure the correct fields have been filled out
 let chosen;
-
+ 
 //remove the red if the user selects a new option
 for (let node in selectNodes) {
     if (selectNodes[node].nodeName === 'SELECT' || selectNodes[node].nodeName === 'INPUT') {
@@ -49,8 +49,6 @@ submitButton.onclick = function () {
         } 
     }
 
-    console.log(chosen);
-
     // if the flag is truthy,  all the fields are full and post req can go through
     if (chosen) {
         // array to store results and push all the values into an array
@@ -65,15 +63,15 @@ submitButton.onclick = function () {
             photo: userPhoto.value.trim(),
             scores: scoresArray
         };
-
+ 
         //post request to route where function finds the best match
         $.post("/api/compat", currentUser)
-            .done(function (data) {
+            .done(function (data) {   
                 userHeader.textContent = `${userName.value}'s best match...`
                 compatImg.src = data.photo;
                 compatHeader.textContent = data.name;
 
-            });
+            }); 
  
     }
 
@@ -91,7 +89,7 @@ submitButton.onclick = function () {
                 compatImg.src = '';
                 compatHeader.textContent = '';
 
-            }
+            }  
         });
 
     } 
