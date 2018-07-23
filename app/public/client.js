@@ -27,29 +27,31 @@ for (let node in selectNodes) {
 
 }
 
-selectNodes.forEach((element) => {
-    console.log(element.nodeName)
-})
-
 // event handler for clicking submit button
 submitButton.onclick = function () {
     event.preventDefault();
 
     // chosen flag only true if all selected. Background of element becomes red if it is not selected
-    selectNodes.forEach((element) => {
-        if (element.value === '' || element.value === 'select') {
-            element.style.backgroundColor = 'red'
-            chosen = false;
+    for (let i = 0; i < selectNodes.length; i++) {
+        if (selectNodes[i].value === '' || selectNodes[i].value === 'select') {
+            selectNodes.forEach((element) => {
+                if (element.value === '' || element.value === 'select') {
+                    element.style.backgroundColor = 'red'
+                }
+            })
             userHeader.textContent = 'Incomplete Data'
             compatImg.src = './images/placeholder.png';
             compatHeader.textContent = '';
+            chosen = false;
+            break;
         } else {
-            element.style.backgroundColor = 'white'
             chosen = true;
-        }
-    });
+        } 
+    }
 
-    // if the flag is true,  all the fields are full and post req can go through
+    console.log(chosen);
+
+    // if the flag is truthy,  all the fields are full and post req can go through
     if (chosen) {
         // array to store results and push all the values into an array
         let scoresArray = []
@@ -62,18 +64,17 @@ submitButton.onclick = function () {
             name: userName.value.trim(),
             photo: userPhoto.value.trim(),
             scores: scoresArray
-        }; 
+        };
 
         //post request to route where function finds the best match
         $.post("/api/compat", currentUser)
             .done(function (data) {
-                console.log('client' + JSON.stringify(data));
                 userHeader.textContent = `${userName.value}'s best match...`
                 compatImg.src = data.photo;
                 compatHeader.textContent = data.name;
 
             });
-
+ 
     }
 
     // reset the values if the user has inputted all the data. If not modal takes back to selection screen using 'data-dismiss' on retake button
@@ -93,8 +94,6 @@ submitButton.onclick = function () {
             }
         });
 
-    }
-
-
-
+    } 
+  
 }
