@@ -10,7 +10,7 @@ If you would like to test it out, you can find it [here](https://shrouded-platea
 ![](./images/friendFinder.gif)
 
 ## Motivation
-This application encompasses both front and back end processes and was intended to demonstrate proficiency in all aspects of a web application. Furthermore, this application also features validations processes to ensure the data sent to the server is complete and can be properly processes by the compatibility algorithm being used
+This application encompasses both front and back end processes and was intended to demonstrate proficiency in all aspects of a web application. Furthermore, this application includes a validation layerto ensure the data sent to the server is complete and can be properly processed by the compatibility algorithm being used.
 
 
 ## To use on your own computer
